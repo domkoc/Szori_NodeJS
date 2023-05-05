@@ -12,7 +12,7 @@ router.get('/',(req,res) => {
     let name: string = req.query.name.toString();
     let query = { name: name };
     // Execute query in the Hello schema:
-    Hello.findOne(query, function(err, hello) {
+    Hello.findOne(query, function(err, hello) { // FIXME: mongoose 5.0 óta nincs callback, await kellene, de nincs a js verzióban
         if (err) {
             res.json({info: 'Error executing query.', error: err});
         }

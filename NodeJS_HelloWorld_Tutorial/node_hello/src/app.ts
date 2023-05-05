@@ -13,7 +13,7 @@ const app: express.Express = express();
 
 let mongoUri = 'mongodb://localhost/hello';
 /*
-mongoose.connect(mongoUri, (err) => {
+mongoose.connect(mongoUri, (err) => { // FIXME: Így nem működik a mongoose.connect (err) miatt)
   if (err) {
     console.error(err.message);
     console.error(err);
@@ -24,7 +24,7 @@ mongoose.connect(mongoUri, (err) => {
 });
 */
 
-mongoose.connect(mongoUri)
+mongoose.connect(mongoUri) // FIXME: Így működik a mongoose.connect, de kellene await, ami ebben a js verzióban nincs
   .catch(err => {
     if (err) {
       console.error(err.message);
